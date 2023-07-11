@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.fashion.css">
+    <script src="https://kit.fontawesome.com/8fed5660fa.js" crossorigin="anonymous"></script>
+    <script src="main.fashion.js"></script>
+    <title>Fashion</title>
+</head>
+<body>
+
+    <div id="main-header">
+
+        <div class="video">   
+            <video autoplay muted plays-inline repeat class="back-video">
+                <source src="./videos/abdifatah1.mp4" type="video/mp4">
+            </video>
+            <div class="overlay"></div>
+        </div>
+                <header>
+                    <div class="logo">
+                        <img src="./images/f.jpg" alt="logo">
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="#main-product">Home</a></li>
+                            <li><a href="./index.shop.html">Shop</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <i id="close" class="fa-solid fa-xmark"></i>
+                        </ul>
+                        <i id="open" class="fa-solid fa-bars"></i>
+                    </nav>
+                </header>    
+        <div class="board">
+            <div class="board-1">
+
+
+                <section class="hero">
+                    <div class="hero-content">
+                        <h1>Welcome to Fatahoch Fashionista Collection</h1>
+                        <p>Discover the latest trends <br> and express your style.</p>
+                        <div class="hero-btn">
+                            <a href="./index.shop.html" class="btn">Shop Now</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <section id="main-product">
+
+        <h1>Feature Products</h1>
+    
+        <div class="product-flex">
+
+            <div class="product-card">
+                <img src="./images/p2.png" alt="Suit">
+                <h3>Mens Wear</h3>
+                <p>Price: $19.99</p>
+                <button><a href="./index.buy.html" class="btn">Buy</a></button>
+            </div>
+
+            <div class="product-card">
+                <img src="./images/p22.png" alt="Suit">
+                <h3>T-Shirt</h3>
+                <p>Price: $08.99</p>
+                <button><a href="./index.buy.html" class="btn">Buy</a></button>
+            </div>
+
+            <div class="product-card">
+                <img src="./images/p11.png" alt="Suit">
+                <h3>Shirt</h3>
+                <p>Price: $49.99</p>
+                <button><a href="./index.buy.html" class="btn">Buy</a></button>
+            </div>
+
+            <div class="product-card">
+                <img src="./images/p16.png" alt="Suit">
+                <h3>Baby Wear</h3>
+                <p>Price: $05.99</p>
+                <button><a href="./index.buy.html" class="btn">Buy</a></button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="about">
+        <div class="about1">
+            <h1>About Me</h1>
+            <br>
+            <p>
+                Fatahoch Fashionista Collection: Redefining Style and Elegance
+                <br>
+                Fatahoch Fashionista Collection is a renowned fashion brand known for its exquisite designs and<br>
+                 commitment to quality. We empower individuals<br>
+                 to express themselves through fashion and offer a range of stylish and<br>
+                 timeless garments. With a focus on craftsmanship and customer satisfaction,<br>
+                 we strive to redefine style and elegance in the fashion industry.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact1">
+            <h1>Contact Me</h1>
+            <br>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Fast Name" placeholder="Fast Name" required>
+                    <input type="text" name="Last Name" placeholder="Last Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="4" placeholder="Message"></textarea>
+                    <button id="btn" class="submit">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="foo1">
+            <p>Copyright &COPY; <img src="./images/f.jpg" alt="logo"> FFC, 2034</p>
+            <ul>
+                <li><a href="https://www.youtube.com/@abdifatah_official"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="https://instagram.com/abdifatah__oba?igshid=NGExMmI2YTkyZg=="><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://twitter.com/iconic__124?t=egiHMua822tqXUUsHGBgRw&s=09"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://www.facebook.com/sahiir.khan.923?mibextid=ZbWKwL"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://www.tiktok.com/@abdifatah_58?_t=8drwAmmE7Fu&_r=1"><i class="fa-brands fa-tiktok"></i></a></li>
+                <li><a href="http://wa.me/254723042798"><i class="fa-brands fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzVjDV9Ab9dBf-RzSmjslBcw4LOAJ0kw8RI4Q3bQcPXAfBd7OOxSFnftY60rim9yrPa/exec';
+        const form = document.forms['submit-to-google-sheet'];
+        const msg = document.querySelector('#msg');
+        const btn = document.querySelector('#btn');
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response =>{
+                btn.disabled = true;
+                msg.innerHTML = 'Message sent succesfully';
+                setTimeout(function(){
+                    msg.innerHTML =''
+                },5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+            })
+    </script>
+
+</body>
+</html>
